@@ -24,4 +24,5 @@ int _strncmp(char *s1, char *s2, size_t length)
 	{
 		return (0);
 	}
+	return (0);
 }
