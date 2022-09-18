@@ -8,7 +8,7 @@
 
 int builtin_exec(char **tokens, char **env)
 {
-	size_t i = 0, x = 0, len, y = 0;
+	size_t i = 0, x = 0, len;
 	int rx;
 
 	builtin_fun func_array[] = {
