@@ -49,7 +49,7 @@ char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
 void free_list(file_node *head);
 int find_node(file_node *h, char *str);
-int filesys_exec(char **tokens, char **env);
+int filesys_exec(char **tokens, char **argv, char **env);
 char *find_path(char *path_value, char *command);
 int _env_fun(char **env);
 int _exit_fun(char **env __attribute__((unused)));

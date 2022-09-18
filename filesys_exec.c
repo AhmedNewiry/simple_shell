@@ -6,7 +6,7 @@
  * Return: 0 if success, and -1 if faild.
  */
 
-int filesys_exec(char **tokens, char **env)
+int filesys_exec(char **tokens, char **argv, char **env)
 {
 
 	pid_t pid;
@@ -29,6 +29,7 @@ int filesys_exec(char **tokens, char **env)
 		x = execve(path, tokens, env);
 		if (x == -1)
 		{
+			_puts(argv[0]);
 			write(STDERR_FILENO, PERROR, _strlen(PERROR));
 			exit(-1);
 		}
