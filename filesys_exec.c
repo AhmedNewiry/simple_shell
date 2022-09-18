@@ -29,6 +29,7 @@ int filesys_exec(char **tokens, char **env)
 		x = execve(path, tokens, env);
 		if (x == -1)
 		{
+			_puts(path);
 			write(STDERR_FILENO, PERROR, _strlen(PERROR));
 			exit(-1);
 		}
