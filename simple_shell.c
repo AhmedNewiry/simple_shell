@@ -18,15 +18,17 @@ int main(int argc __attribute__((unused)), char **argv, char *env[])
 		_puts("$ ");
 		if (getline(&buffer, &line_len, stdin) == -1)
 			return (-1);
+		else
+		{
 		for (x = 0; buffer[x] != '\0'; x++)
 		{
+			if (x == 0 && buffer[x] == '\n')
+			{
+				continue;
+			}
 			n = _strlen(buffer) - 1;
 			if (x == n)
 				buffer[x] = '\0';
-		}
-		if (buffer[0] == '\n')
-		{
-			continue;
 		}
 		tokens = mod_strtok(buffer, " ");
 		if (tokens == NULL && argv == NULL)
@@ -37,6 +39,7 @@ int main(int argc __attribute__((unused)), char **argv, char *env[])
 		{
 			if (filesys_exec(tokens, argv, env) == -1)
 				continue;
+		}
 		}
 	}
 free(tokens);
