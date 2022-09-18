@@ -39,6 +39,10 @@ int main(int argc __attribute__((unused)), char **argv, char *env[])
 		{
 			if (filesys_exec(tokens, argv, env) == -1)
 				continue;
+			else
+			{
+				exit(0);
+			}
 		}
 		}
 	}
