@@ -41,7 +41,7 @@ int main(int argc __attribute__((unused)), char **argv, char *env[])
 				exit(EXIT_SUCCESS);
 			if (builtin_exec(tokens, env) == 0)
 				continue;
-			if (filesys_exec(tokens, env) == -1)
+			if (filesys_exec(tokens, argv, env) == -1)
 				continue;
 		}
 	}
