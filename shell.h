@@ -11,7 +11,7 @@
 #include <sys/wait.h>
 #include <errno.h>
 
-#define PERROR "./shell: No such file or directory\n"
+#define PERROR ": No such file or directory\n"
 
 /**
  * struct builtin_fun- structure for buitin functions
