@@ -9,7 +9,7 @@ void print_prompt(int fd)
 
 	fstat(fd, &s_stat);
 
-	if (S_ISCHR(s_stat.s_mode))
+	if (S_ISCHR(s_stat.st_mode))
 	{
 		_puts("$ ");
 	}
