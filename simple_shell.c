@@ -15,7 +15,7 @@ int main(int argc __attribute__((unused)), char **argv, char *env[])
 
 	while (1)
 	{
-		_puts("$ ");
+		print_prompt(STDIN_FILENO);
 		if (getline(&buffer, &line_len, stdin) == -1)
 			return (-1);
 		else

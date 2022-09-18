@@ -9,7 +9,9 @@
 #include <dirent.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
 #include <errno.h>
+#include <fcntl.h>
 
 #define PERROR ": No such file or directory\n"
 
@@ -54,4 +56,5 @@ char *find_path(char *path_value, char *command);
 int _env_fun(char **env);
 int _exit_fun(char **env __attribute__((unused)));
 int builtin_exec(char **tokens, char **env);
+void print_prompt(int fd);
 #endif
