@@ -12,7 +12,8 @@ int filesys_exec(char **tokens, char **argv, char **env)
 	pid_t pid;
 	char *path = NULL;
 
-	int x = 0;
+	int x = 0, n = 0;
+	char *arr[] = {"ahmed", NULL};
 
 
 	path = tokens[0];
@@ -25,8 +26,18 @@ int filesys_exec(char **tokens, char **argv, char **env)
 
 	if (pid == 0)
 	{
+		while (tokens[n])
+		{
+			n++;
+		}
+		if (n > 1)
+		{
+			_puts(argv[0]);
+			write(STDERR_FILENO, PERROR, _strlen(PERROR));
+			exit(-1);
+		}
 
-		x = execve(path, tokens, env);
+		x = execve(path, arr, env);
 		if (x == -1)
 		{
 			_puts(argv[0]);
