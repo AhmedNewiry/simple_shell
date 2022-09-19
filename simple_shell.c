@@ -36,7 +36,6 @@ int main(int argc __attribute__((unused)), char **argv, char *env[])
 			continue;
 		}
 		else
-		{
 			x = filesys_exec(tokens, argv, env);
 			if (isatty(STDIN_FILENO))
 				__free(buffer, tokens);
@@ -47,8 +46,6 @@ int main(int argc __attribute__((unused)), char **argv, char *env[])
 			if (x != -1 && !isatty(STDIN_FILENO))
 				__free(buffer, tokens);
 				exit(0);
-		}
-		}
 	}
 return (0);
 }
