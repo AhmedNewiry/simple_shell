@@ -17,16 +17,14 @@ int main(int argc __attribute__((unused)), char **argv, char *env[])
 	{
 		print_prompt(STDIN_FILENO);
 		if (getline(&buffer, &line_len, stdin) == -1)
-			return (-1);
-		else
 		{
+			return (-1);
+		}
 		for (x = 0; buffer[x] != '\0'; x++)
 		{
 			if (x == 0 && buffer[x] == '\n')
-			{
 				free(buffer);
 				continue;
-			}
 			n = _strlen(buffer) - 1;
 			if (x == n)
 				buffer[x] = '\0';
@@ -52,7 +50,6 @@ int main(int argc __attribute__((unused)), char **argv, char *env[])
 		}
 		}
 	}
-
 return (0);
 }
 

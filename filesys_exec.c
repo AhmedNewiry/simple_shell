@@ -2,19 +2,17 @@
 /**
  * filesys_exec- a function that executes a filesystem executable
  * @tokens: command line argument.
+ * @argv: command line arguments.
  * @env: is a variable environment.
  * Return: 0 if success, and -1 if faild.
  */
 
 int filesys_exec(char **tokens, char **argv, char **env)
 {
-
 	pid_t pid;
 	char *path = NULL;
-
 	int x = 0, n = 0;
 	char *arr[] = {"ahmed", NULL};
-
 
 	path = tokens[0];
 	pid  = fork();
@@ -45,8 +43,6 @@ int filesys_exec(char **tokens, char **argv, char **env)
 			exit(-1);
 		}
 	}
-
 	wait(NULL);
 	return (0);
-
 }
