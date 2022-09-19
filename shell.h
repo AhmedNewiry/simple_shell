@@ -57,4 +57,5 @@ int _env_fun(char **env);
 int _exit_fun(char **env __attribute__((unused)));
 int builtin_exec(char **tokens, char **env);
 void print_prompt(int fd);
+void __free(char *buffer, char **tokens);
 #endif
