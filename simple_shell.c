@@ -22,13 +22,10 @@ int main(int argc __attribute__((unused)), char **argv, char *env[])
 			free(buffer);
 			return (-1);
 		}
-
 		if (buffer[0] == '\n')
-		{                                                           
-
+		{
 			continue;
 		}
-
 		for (x = 0; buffer[x] != '\0'; x++)
 		{
 			n = _strlen(buffer) - 1;
@@ -45,6 +42,11 @@ int main(int argc __attribute__((unused)), char **argv, char *env[])
 		}
 		else
 		{
+			if (builtin_exec(tokens, env) == 1)
+			{
+				__free(buffer, tokens);
+				exit(EXIT_SUCCESS);
+			}
 	
 			x = filesys_exec(tokens, argv, env);
 			if (isatty(STDIN_FILENO))
@@ -52,12 +54,12 @@ int main(int argc __attribute__((unused)), char **argv, char *env[])
 				__free(buffer, tokens);
 				continue;
 			}
-			if (x == -1 && !isatty(STDIN_FILENO))
+			else if(x == -1 && !isatty(STDIN_FILENO))
 			{
 				__free(buffer, tokens);
 				exit(-1);
 			}
-			if (x != -1 && !isatty(STDIN_FILENO))
+			else if (x != -1 && !isatty(STDIN_FILENO))
 			{
 				__free(buffer, tokens);
 				exit(0);
